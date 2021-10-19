@@ -4,4 +4,5 @@
 
 #### simple flutter app portfolio using liquid swipe 
 
-![profile.gif](day1/assets/profile.gif) 
+
+<img src="day1/assets/profile.gif" width="300">

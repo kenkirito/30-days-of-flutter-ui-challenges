@@ -1,4 +1,5 @@
 # Simple portfolio using flutter 
  
 
-![profile.gif](assets/profile.gif)
+
+<img src="assets/profile.gif" width="300">
