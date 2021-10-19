@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-// ignore: unused_import
-import 'package:liquid_swipe/Helpers/LiquidSwipeChildDelegate.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
+import 'package:curved_drawer_fork/curved_drawer_fork.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(MyApp());
@@ -28,18 +28,28 @@ class Profile extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
         home: new Scaffold(
+            drawer: CurvedDrawer(
+                color: Colors.white,
+                labelColor: Colors.black,
+                width: 75.0,
+                items: <DrawerItem>[
+                  DrawerItem(icon: Icon(FontAwesomeIcons.github)),
+                  DrawerItem(icon: Icon(FontAwesomeIcons.linkedinIn)),
+                  DrawerItem(icon: Icon(FontAwesomeIcons.mailBulk)),
+                  DrawerItem(icon: Icon(FontAwesomeIcons.youtube)),
+                  DrawerItem(icon: Icon(FontAwesomeIcons.twitter)),
+                ],
+                onTap: (index) {}),
             body: LiquidSwipe(
-      pages: pages,
-      fullTransitionValue: FULL_TRANSITION_PX,
-      initialPage: 0,
-      slideIconWidget: const Icon(Icons.arrow_back_ios),
-      positionSlideIcon: 0.54,
-      enableLoop: true,
-      waveType: WaveType.liquidReveal,
-      liquidController: LiquidController(),
-      disableUserGesture: false,
-      ignoreUserGestureWhileAnimating: false,
-    )));
+              pages: pages,
+              fullTransitionValue: 500,
+              slideIconWidget: const Icon(Icons.arrow_back_ios),
+              positionSlideIcon: 0.54,
+              enableLoop: true,
+              waveType: WaveType.circularReveal,
+              disableUserGesture: false,
+              ignoreUserGestureWhileAnimating: false,
+            )));
   }
 }
 
@@ -52,13 +62,18 @@ final pages = [
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         Image.asset(
-          'assets/profile.png',
+          'assets/intro.png',
           fit: BoxFit.cover,
         ),
         Column(children: <Widget>[
           new Text(
             "Hi 🤟",
-            style: TextStyle(fontSize: 30, fontWeight: FontWeight.normal),
+            style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+          ),
+          new Text(
+            "I am lakshya mishra",
+            style: TextStyle(
+                fontSize: 25, fontFamily: "Billy", fontWeight: FontWeight.w600),
           ),
         ])
       ],
@@ -75,13 +90,19 @@ final pages = [
           'assets/coder.png',
           fit: BoxFit.cover,
         ),
-        Padding(padding: const EdgeInsets.all(20.0)),
         Column(
           children: <Widget>[
             new Text(
-              "Software developer 😎",
+              "full stack developer 😎",
               style: TextStyle(
-                  fontSize: 30,
+                  fontSize: 22,
+                  fontFamily: "Billy",
+                  fontWeight: FontWeight.w600),
+            ),
+            new Text(
+              "working in mern, flutter and web3 ",
+              style: TextStyle(
+                  fontSize: 22,
                   fontFamily: "Billy",
                   fontWeight: FontWeight.w600),
             ),
@@ -101,7 +122,6 @@ final pages = [
           'assets/weeb.png',
           fit: BoxFit.cover,
         ),
-        Padding(padding: const EdgeInsets.all(10.0)),
         Column(
           children: <Widget>[
             new Text(
